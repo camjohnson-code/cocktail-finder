@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import LogInPage from '../Log In Page/LogInPage';
+import Details from '../Details/Details';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,7 +30,7 @@ function App() {
       )}
       <Routes>
         <Route path="/" element={<LogInPage />}></Route>
-        <Route></Route>
+        <Route path="/details" element={<Details />}></Route>
         <Route></Route>
         <Route></Route>
         <Route></Route>
