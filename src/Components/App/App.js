@@ -1,7 +1,8 @@
 import './App.css';
+import LogInPage from '../Log In Page/LogInPage';
 
 function App() {
-  return <h1>Quintessential Cocktails</h1>;
+  return <LogInPage />;
 }
 
 export default App;

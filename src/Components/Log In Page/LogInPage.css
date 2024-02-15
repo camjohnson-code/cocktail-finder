@@ -1,0 +1,51 @@
+.tagline,
+.title {
+  text-align: center;
+}
+
+.tagline,
+hr {
+  margin-bottom: 20px;
+}
+
+.log-in-page {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
+      center/cover,
+    url('../../Images/old_fashioned.jpg') center/cover;
+  height: 100vh;
+  /* color: #000; */
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.log-in-box {
+  height: auto;
+  width: 400px;
+  /* background-color: #fff; */
+  /* background-color: #606060; */
+  background-color: rgba(100, 100, 100, 0.5);
+  border-radius: 25px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: calc((100% - 400px) / 7);
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  font-size: 48px;
+  font-family: 'Antic Didone', serif;
+}
+
+.tagline {
+  width: 75%;
+  margin-top: 10px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+hr {
+  width: 90%;
+}
