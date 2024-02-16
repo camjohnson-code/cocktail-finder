@@ -1,22 +1,40 @@
 .details-container {
-  font-family: Antic Didone;
-  box-sizing: border-box;
-  border: 1px solid black;
-  height: 80vh;
   position: relative;
-  margin: 10%;
+  overflow: hidden;
+  font-family: Antic Didone;
+  width: 1000px;
+  box-shadow: 0 0 20px 0 rgb(164, 177, 177);
+  height: 620px;
+  margin: 12%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   line-height: 2rem;
 }
 
+.accent-container {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  border-bottom: 1px solid black;
+  transform: rotate(270deg);
+  top: 18em;
+  left: -13em;
+  width: 500px;
+}
+
+.accent-text {
+  padding-right: .5rem;
+  color: purple;
+}
+
 .details-container > h1 {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 3%;
+  right: -0.2em;
   font-size: 8rem;
-  opacity: 20%;
+  opacity: 10%;
 }
 
 .details-container h3 {
@@ -25,7 +43,8 @@
 
 .ingredients {
   font-family: Josefin Sans;
-  padding: 2em;
+  text-align: right;
+  padding: 1em;
   width: 12em;
 }
 
@@ -37,7 +56,7 @@
 
 .recipe {
   font-family: Josefin Sans;
-  padding: 2em;
+  padding: 1em;
   width: 12em;
 }
 
@@ -58,9 +77,8 @@ hgroup > p {
 hgroup > img {
   z-index: -1;
   position: absolute;
-  overflow: hidden;
   top: 10%;
-  right: -10em;
+  right: -6em;
   height: 80%;
-  opacity: 20%;
+  opacity: 28%;
 }

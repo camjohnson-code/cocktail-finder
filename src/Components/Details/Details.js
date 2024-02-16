@@ -4,11 +4,12 @@ import { mockDetails } from'./details-mock-data'
 const Details = () => {
 
   const listIngredients = () => {
-    return Object.entries(mockDetails).reduce((a, c) => {
-      const num = c[0].length - 1
+    return Object.entries(mockDetails).reduceRight((a, c) => {
+      const num = c[0].length - 1;
+      const key = c[0][num];
       if (c[0].includes('Ingredient') || c[0].includes('Measure')) {
-        a[c[0][num]] = a[c[0][num]] || []
-        a[c[0][num]].push(c[1])
+        a[key] = a[key] || [];
+        if (a[key]) a[key].push(c[1]);
       }
       return a
     }, {})
@@ -27,6 +28,9 @@ const Details = () => {
   return (
     <section className='details-container'>
       <h1>{`${mockDetails.strDrink}`}</h1>
+      <div className='accent-container'>
+        <p className='accent-text'>{`${mockDetails.strCategory}`}</p>
+      </div>
       <article className='ingredients'>
         <h3>Ingredients</h3>
         { renderlist(listIngredients()) }
