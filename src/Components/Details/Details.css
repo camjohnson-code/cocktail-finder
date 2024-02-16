@@ -1,11 +1,12 @@
 .details-container {
+  font-family: Antic Didone;
   box-sizing: border-box;
   border: 1px solid black;
   height: 80vh;
   position: relative;
   margin: 10%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   line-height: 2rem;
 }
@@ -23,8 +24,9 @@
 }
 
 .ingredients {
+  font-family: Josefin Sans;
   padding: 2em;
-  width: 20em;
+  width: 12em;
 }
 
 
@@ -34,14 +36,31 @@
 }
 
 .recipe {
+  font-family: Josefin Sans;
   padding: 2em;
-  width: 20em;
+  width: 12em;
 }
 
 hgroup {
+  padding: 2em;
+}
 
+hgroup > h2 {
+  font-size: 2.5rem;
+}
+
+hgroup > p {
+  font-size: 1.5rem;
+  color: purple;
+  padding-left: 1rem;
 }
 
 hgroup > img {
-  width: 400px;
+  z-index: -1;
+  position: absolute;
+  overflow: hidden;
+  top: 10%;
+  right: -10em;
+  height: 80%;
+  opacity: 20%;
 }
