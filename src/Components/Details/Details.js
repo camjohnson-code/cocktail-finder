@@ -5,10 +5,8 @@ const Details = () => {
 
   const listIngredients = () => {
     return Object.entries(mockDetails).reduce((a, c) => {
-      const ing = 'Ingredient';
-      const mea = 'Measure'
       const num = c[0].length - 1
-      if (c[0].includes(ing) || c[0].includes(mea)) {
+      if (c[0].includes('Ingredient') || c[0].includes('Measure')) {
         a[c[0][num]] = a[c[0][num]] || []
         a[c[0][num]].push(c[1])
       }
@@ -19,8 +17,8 @@ const Details = () => {
   const renderlist = () => {
     return (
       <ul>
-        { Object.keys(listIngredients()).map(key => (
-          <li>{ listIngredients()[key].join(' | ') }</li>          
+        { Object.keys(listIngredients()).map(item => (
+          <li key={item}>{ listIngredients()[item].join(' | ') }</li>          
         )) }
       </ul>
     )

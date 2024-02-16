@@ -1,2 +1,47 @@
+.details-container {
+  box-sizing: border-box;
+  border: 1px solid black;
+  height: 80vh;
+  position: relative;
+  margin: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 2rem;
+}
+
+.details-container > h1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 8rem;
+  opacity: 20%;
+}
+
+.details-container h3 {
+  padding-bottom: 1rem;
+}
+
+.ingredients {
+  padding: 2em;
+  width: 20em;
+}
 
 
+.ingredients > ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.recipe {
+  padding: 2em;
+  width: 20em;
+}
+
+hgroup {
+
+}
+
+hgroup > img {
+  width: 400px;
+}
