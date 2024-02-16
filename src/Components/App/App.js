@@ -14,7 +14,7 @@ function App() {
         <header>
           <h1>Quintessential Cocktails</h1>
           <nav>
-            <NavLink to='/coctailshome' className='nav-link'>
+            <NavLink to='/cocktailshome' className='nav-link'>
               Home
             </NavLink>
             <NavLink to='/randomcocktail' className='nav-link'>
@@ -31,7 +31,7 @@ function App() {
       )}
       <Routes>
         <Route path='/' element={<LogInPage />}></Route>
-        <Route path='/home' element={<SearchPage />}></Route>
+        <Route path='/cocktailshome' element={<SearchPage />}></Route>
         <Route path='/details' element={<Details />}></Route>
         <Route></Route>
         <Route></Route>
