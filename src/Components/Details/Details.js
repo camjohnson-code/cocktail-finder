@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom'
 import './Details.css'
-import { mockDetails } from'./details-mock-data'
 import { useEffect, useState } from 'react'
 
 const Details = () => {
