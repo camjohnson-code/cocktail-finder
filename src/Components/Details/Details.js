@@ -1,27 +1,22 @@
-import { useParams } from 'react-router-dom'
-import './Details.css'
-import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import './Details.css';
+import { useEffect, useState } from 'react';
+import { getCocktailDetails } from '../../ApiCalls';
 
 const Details = () => {
-  const [ selectedCocktail, setSelectedCocktail ] = useState(null)
-  const [ error, setError ] = useState('')
-  const id = useParams().id
+  const [selectedCocktail, setSelectedCocktail] = useState(null);
+  const [error, setError] = useState('');
+  const id = useParams().id;
 
   useEffect(() => {
-    fetch(`https://www.thecocktaildb.com/api/jso/v1/1/lookup.php?i=${id}`)
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('Something went wrong, try refreshing the page.')
-      }
-      return res.json()
-    })
-    .then(data => {
-      setSelectedCocktail(data.drinks[0])
-    })
-    .catch(error => {
-      setError(error.message)
-    })
-  },[])
+    getCocktailDetails()
+      .then((data) => {
+        setSelectedCocktail(data.drinks[0]);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  }, []);
 
   const listIngredients = () => {
     return Object.entries(selectedCocktail).reduceRight((a, c) => {
@@ -32,22 +27,23 @@ const Details = () => {
           a[key] = a[key] || [];
           a[key].push(c[1]);
         }
-      } 
-      return a
-    }, {})
-  }
+      }
+      return a;
+    }, {});
+  };
 
   const renderlist = () => {
     return (
       <ul>
-        { Object.keys(listIngredients()).map(item => (
-          <li key={item}>{ listIngredients()[item].join(' | ') }</li>          
-        )) }
+        {Object.keys(listIngredients()).map((item) => (
+          <li key={item}>{listIngredients()[item].join(' | ')}</li>
+        ))}
       </ul>
-    )
-  }
+    );
+  };
 
-  if (!selectedCocktail || error.length) return <p className='error'>{error}</p>
+  if (!selectedCocktail || error.length)
+    return <p className='error'>{error}</p>;
 
   return (
     <section className='details-container'>
@@ -57,7 +53,7 @@ const Details = () => {
       </div>
       <article className='ingredients'>
         <h3>Ingredients</h3>
-        { renderlist(listIngredients()) }
+        {renderlist(listIngredients())}
       </article>
       <article className='recipe'>
         <h3>Recipe</h3>
@@ -69,7 +65,7 @@ const Details = () => {
         <img src={selectedCocktail.strDrinkThumb} alt=''></img>
       </hgroup>
     </section>
-  )
-}
+  );
+};
 
-export default Details
+export default Details;
