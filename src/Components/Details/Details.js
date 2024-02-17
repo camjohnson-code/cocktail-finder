@@ -4,17 +4,22 @@ import { useEffect, useState } from 'react'
 
 const Details = () => {
   const [ selectedCocktail, setSelectedCocktail ] = useState(null)
+  const [ error, setError ] = useState('')
   const id = useParams().id
-  console.log(id)
 
   useEffect(() => {
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
-    .then(res => res.json())
+    fetch(`https://www.thecocktaildb.com/api/jso/v1/1/lookup.php?i=${id}`)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Something went wrong, try refreshing the page.')
+      }
+      return res.json()
+    })
     .then(data => {
       setSelectedCocktail(data.drinks[0])
     })
-    .then(err => {
-      console.error(err)
+    .catch(error => {
+      setError(error.message)
     })
   },[])
 
@@ -42,7 +47,8 @@ const Details = () => {
     )
   }
 
-  if (!selectedCocktail) return <></>
+  if (!selectedCocktail || error.length) return <p className='error'>{error}</p>
+
   return (
     <section className='details-container'>
       <h1>{`${selectedCocktail.strDrink}`}</h1>
@@ -59,7 +65,7 @@ const Details = () => {
       </article>
       <hgroup className='title-container'>
         <h2>{`${selectedCocktail.strDrink}`}</h2>
-        <p>For the Love of Brunch</p>
+        <p>Contemporary Classics</p>
         <img src={selectedCocktail.strDrinkThumb} alt=''></img>
       </hgroup>
     </section>

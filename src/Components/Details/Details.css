@@ -1,7 +1,7 @@
 .details-container {
   position: relative;
   overflow: hidden;
-  font-family: Antic Didone;
+  font-family: 'Antic Didone', sans-serif;
   height: 650px;
   box-shadow: 0 0 20px 0 rgb(164, 177, 177);
   margin: 5%;
@@ -42,7 +42,7 @@
 }
 
 .ingredients {
-  font-family: Josefin Sans;
+  font-family: 'Josefin Sans', sans-serif;
   text-align: right;
   padding: 1em;
   width: 16em;
@@ -55,32 +55,39 @@
 }
 
 .recipe {
-  font-family: Josefin Sans;
+  font-family: 'Josefin Sans', sans-serif;
   padding: 1em;
   width: 16em;
 }
 
-hgroup {
+.title-container {
   padding: 2em;
 }
 
-hgroup > h2 {
+.title-container > h2 {
   font-size: 2.5rem;
   width: 6.5em;
   line-height: 2.5rem;
 }
 
-hgroup > p {
+.title-container > p {
   font-size: 1.5rem;
   color: purple;
   padding-left: 1rem;
 }
 
-hgroup > img {
+.title-container > img {
   z-index: -1;
   position: absolute;
   top: 10%;
   right: -6em;
   height: 80%;
   opacity: 28%;
+}
+
+.error {
+  font-family: 'Antic Didone', sans-serif;
+  padding: 2rem;
+  font-size: 1.5rem;
+  justify-self: center;
 }
