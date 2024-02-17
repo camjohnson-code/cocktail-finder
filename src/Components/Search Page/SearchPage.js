@@ -1,26 +1,35 @@
 import { useState } from 'react';
 import './SearchPage.css';
 import Card from '../Card/Card';
+import { getCocktail } from '../../ApiCalls';
 
 const SearchPage = () => {
   const [searchValue, setSearchValue] = useState('');
   const [drinks, setDrinks] = useState([]);
+  const [error, setError] = useState('');
 
   const cocktailCards = drinks.map((drink) => {
-    return <Card id={drink.idDrink} title={drink.strDrink} img={drink.strDrinkThumb} />;
+    return (
+      <Card
+        key={drink.idDrink}
+        id={drink.idDrink}
+        title={drink.strDrink}
+        img={drink.strDrinkThumb}
+      />
+    );
   });
-
-  const getCocktail = (drink) => {
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
-      .then((response) => response.json())
-      .then((drinks) => {
-        drinks.drinks ? setDrinks(drinks.drinks) : setDrinks([]);
-      });
-  };
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
-      searchValue ? getCocktail(searchValue) : setDrinks([]);
+      searchValue
+        ? getCocktail(searchValue)
+            .then((drinks) => {
+              drinks.drinks ? setDrinks(drinks.drinks) : setDrinks([]);
+            })
+            .catch((error) => {
+              setError(error.message);
+            })
+        : setDrinks([]);
     }
   };
 
@@ -39,9 +48,13 @@ const SearchPage = () => {
           cocktailCards.length ? 'has-results' : ''
         }`}
       >
-        {cocktailCards.length
-          ? cocktailCards
-          : 'No results found. Please try again.'}
+        {cocktailCards.length ? (
+          cocktailCards
+        ) : error ? (
+          <p className='error'>{error}</p>
+        ) : (
+          'No results found. Please try again.'
+        )}
       </div>
     </section>
   );
