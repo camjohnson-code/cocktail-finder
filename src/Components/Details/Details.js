@@ -9,7 +9,7 @@ const Details = () => {
   const id = useParams().id;
 
   useEffect(() => {
-    getCocktailDetails()
+    getCocktailDetails(id)
       .then((data) => {
         setSelectedCocktail(data.drinks[0]);
       })
