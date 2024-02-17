@@ -7,7 +7,7 @@ const SearchPage = () => {
   const [drinks, setDrinks] = useState([]);
 
   const cocktailCards = drinks.map((drink) => {
-    return <Card title={drink.strDrink} img={drink.strDrinkThumb} />;
+    return <Card id={drink.idDrink} title={drink.strDrink} img={drink.strDrinkThumb} />;
   });
 
   const getCocktail = (drink) => {

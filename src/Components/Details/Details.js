@@ -1,16 +1,36 @@
+import { useParams } from 'react-router-dom'
 import './Details.css'
-import { mockDetails } from'./details-mock-data'
+import { useEffect, useState } from 'react'
 
 const Details = () => {
+  const [ selectedCocktail, setSelectedCocktail ] = useState(null)
+  const [ error, setError ] = useState('')
+  const id = useParams().id
+
+  useEffect(() => {
+    fetch(`https://www.thecocktaildb.com/api/jso/v1/1/lookup.php?i=${id}`)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Something went wrong, try refreshing the page.')
+      }
+      return res.json()
+    })
+    .then(data => {
+      setSelectedCocktail(data.drinks[0])
+    })
+    .catch(error => {
+      setError(error.message)
+    })
+  },[])
 
   const listIngredients = () => {
-    return Object.entries(mockDetails).reduceRight((a, c) => {
+    return Object.entries(selectedCocktail).reduceRight((a, c) => {
       const num = c[0].length - 1;
       const key = c[0][num];
       if (c[1] !== null) {
         if (c[0].includes('Ingredient') || c[0].includes('Measure')) {
           a[key] = a[key] || [];
-          if (a[key] !== null) a[key].push(c[1]);
+          a[key].push(c[1]);
         }
       } 
       return a
@@ -27,11 +47,13 @@ const Details = () => {
     )
   }
 
+  if (!selectedCocktail || error.length) return <p className='error'>{error}</p>
+
   return (
     <section className='details-container'>
-      <h1>{`${mockDetails.strDrink}`}</h1>
+      <h1>{`${selectedCocktail.strDrink}`}</h1>
       <div className='accent-container'>
-        <p className='accent-text'>{`${mockDetails.strCategory}`}</p>
+        <p className='accent-text'>{`${selectedCocktail.strCategory}`}</p>
       </div>
       <article className='ingredients'>
         <h3>Ingredients</h3>
@@ -39,12 +61,12 @@ const Details = () => {
       </article>
       <article className='recipe'>
         <h3>Recipe</h3>
-        <p>{`${mockDetails.strInstructions}`}</p>
+        <p>{`${selectedCocktail.strInstructions}`}</p>
       </article>
       <hgroup className='title-container'>
-        <h2>{`${mockDetails.strDrink}`}</h2>
-        <p>For the Love of Brunch</p>
-        <img src={mockDetails.strDrinkThumb} alt=''></img>
+        <h2>{`${selectedCocktail.strDrink}`}</h2>
+        <p>Contemporary Classics</p>
+        <img src={selectedCocktail.strDrinkThumb} alt=''></img>
       </hgroup>
     </section>
   )

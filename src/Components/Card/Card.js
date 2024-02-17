@@ -1,11 +1,12 @@
 import './Card.css';
+import { Link } from 'react-router-dom';
 
-const Card = ({ title, img }) => {
+const Card = ({ title, img, id }) => {
   return (
-    <section className='card'>
+    <Link className='card' to={`/details/${id}`}>
       <img src={img}></img>
       <p className='drink-title'>{title}</p>
-    </section>
+    </Link>
   );
 };
 
