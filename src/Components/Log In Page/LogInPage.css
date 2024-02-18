@@ -13,7 +13,6 @@ hr {
       center/cover,
     url('../../Images/old_fashioned.jpg') center/cover;
   height: 100vh;
-  /* color: #000; */
   color: white;
   display: flex;
   justify-content: flex-end;
@@ -23,8 +22,6 @@ hr {
 .log-in-box {
   height: auto;
   width: 400px;
-  /* background-color: #fff; */
-  /* background-color: #606060; */
   background-color: rgba(100, 100, 100, 0.5);
   border-radius: 25px;
   padding: 30px;
@@ -48,4 +45,10 @@ hr {
 
 hr {
   width: 90%;
+}
+
+.sign-in-button {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
 }

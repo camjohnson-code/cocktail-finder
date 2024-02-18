@@ -1,0 +1,22 @@
+.not-found {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Josefin Sans', sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url('../../Images/louis-hansel-yLUvnCFI500-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.not-found p {
+  margin-top: 10px;
+}
+
+.not-found,
+.return-home-link {
+  color: white;
+}
