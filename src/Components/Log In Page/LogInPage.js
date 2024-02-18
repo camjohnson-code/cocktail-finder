@@ -12,10 +12,18 @@ const LogInPage = ({ setIsLoggedIn }) => {
     const provider = await new GoogleAuthProvider();
     return signInWithPopup(auth, provider)
       .then(() => {
-        navigate('/cocktailshome');
+        localStorage.setItem('isLoggedIn', true);
         setIsLoggedIn(true);
+        navigate('/cocktailshome');
       })
       .catch((error) => console.log(error));
+  };
+
+  const handleKeyDown = (event) => {
+    if ((event.key = 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      signInWithGoogle();
+    }
   };
 
   return (
@@ -26,7 +34,13 @@ const LogInPage = ({ setIsLoggedIn }) => {
           Discover timeless mixes with Quintessential Cocktails
         </p>
         <hr></hr>
-        <GoogleButton onClick={signInWithGoogle} />
+        <img
+          onKeyDown={(event) => handleKeyDown(event)}
+          onClick={signInWithGoogle}
+          tabIndex={0}
+          className='sign-in-button'
+          src={require('../../Images/web_light_rd_SI@4x.png')}
+        />
       </section>
     </section>
   );

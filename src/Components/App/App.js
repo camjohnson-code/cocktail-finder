@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import LogInPage from '../Log In Page/LogInPage';
 import Details from '../Details/Details';
@@ -7,15 +7,19 @@ import SearchPage from '../Search Page/SearchPage';
 import NotFoundPage from '../Not Found Page/NotFoundPage';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../Firebase/FirebaseConfig';
-import { useNavigate, redirect } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function App() {
+  const location = useLocation();
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem('isLoggedIn') === 'true'
+  );
 
   const signOutWithGoogle = () => {
     signOut(auth)
       .then(() => {
+        localStorage.setItem('isLoggedIn', false);
         setIsLoggedIn(false);
         navigate('/');
       })
@@ -24,9 +28,17 @@ function App() {
       });
   };
 
+  const isValidRoute = () => {
+    const validRoutes = ['/', '/cocktailshome'];
+    return (
+      validRoutes.includes(location.pathname) ||
+      location.pathname.startsWith('/details/')
+    );
+  };
+
   return (
     <main className='App'>
-      {isLoggedIn && (
+      {isLoggedIn && isValidRoute() && (
         <header>
           <h1>Quintessential Cocktails</h1>
           <nav>
@@ -52,14 +64,25 @@ function App() {
         ></Route>
         <Route
           path='/cocktailshome'
-          element={isLoggedIn ? <SearchPage /> : <NotFoundPage isLoggedIn={isLoggedIn} />}
+          element={
+            isLoggedIn ? (
+              <SearchPage />
+            ) : (
+              <NotFoundPage isLoggedIn={isLoggedIn} />
+            )
+          }
         ></Route>
         <Route
           path='/details/:id'
-          element={isLoggedIn ? <Details /> : <NotFoundPage isLoggedIn={isLoggedIn} />}
+          element={
+            isLoggedIn ? <Details /> : <NotFoundPage isLoggedIn={isLoggedIn} />
+          }
         ></Route>
         <Route></Route>
-        <Route path='*' element={<NotFoundPage isLoggedIn={isLoggedIn} />}></Route>
+        <Route
+          path='*'
+          element={<NotFoundPage isLoggedIn={isLoggedIn} />}
+        ></Route>
       </Routes>
     </main>
   );
