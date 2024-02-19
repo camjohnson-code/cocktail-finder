@@ -1,5 +1,6 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import UseLocalStorage from './UseLocaStorage';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Nav from '../Nav/Nav';
 import LogInPage from '../Log In Page/LogInPage';
@@ -15,8 +16,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem('isLoggedIn') === 'true'
   );
-  const [favorites, setFavorites] = useState([]);
-
+  const [favorites, setFavorites] = UseLocalStorage('stored-faves', []);
+  
   const isValidRoute = () => {
     const validRoutes = ['/', '/cocktailshome', '/randomcocktail', '/favorites'];
     return (
@@ -37,7 +38,12 @@ function App() {
         ></Route>
         <Route
           path="/details/:id"
-          element={isLoggedIn ? <Details favorites={favorites} setFavorites={setFavorites} /> : <NotFoundPage isLoggedIn={isLoggedIn} />}
+          element={isLoggedIn ? (
+            <Details favorites={favorites} setFavorites={setFavorites} /> 
+            ) : (
+            <NotFoundPage isLoggedIn={isLoggedIn} />
+            )
+          }
         ></Route>
         <Route
           path='/randomcocktail'
@@ -51,7 +57,12 @@ function App() {
         ></Route>
         <Route
           path="/favorites"
-          element={isLoggedIn ? <Favorites favorites={favorites}/> : <NotFoundPage isLoggedIn={isLoggedIn} />}
+          element={isLoggedIn ? (
+          <Favorites favorites={favorites} setFavorites={setFavorites}/>
+          ) : (
+          <NotFoundPage isLoggedIn={isLoggedIn} />
+          )
+        }
         ></Route>
         <Route
           path='/cocktailshome'

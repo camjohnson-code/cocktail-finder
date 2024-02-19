@@ -3,15 +3,14 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getCocktailDetails } from '../../ApiCalls';
 
-const Details = ({ favorites, setFavorites}) => {
+const Details = ({ favorites, setFavorites }) => {
   const [selectedCocktail, setSelectedCocktail] = useState(null);
   const [error, setError] = useState('');
   const id = useParams().id;
 
   const addToFavorites = () => {
-    setFavorites([...favorites, selectedCocktail]);
+    setFavorites([...favorites, selectedCocktail])
   }
-
 
   useEffect(() => {
     getCocktailDetails(id)
@@ -46,7 +45,7 @@ const Details = ({ favorites, setFavorites}) => {
       </ul>
     );
   };
-
+console.log(favorites)
   if (!selectedCocktail || error.length)
     return <p className='error'>{error}</p>;
 
@@ -69,7 +68,10 @@ const Details = ({ favorites, setFavorites}) => {
         <p>Contemporary Classics</p>
         <img src={selectedCocktail.strDrinkThumb} alt=''></img>
       </hgroup>
+      { 
+      !favorites.includes(selectedCocktail) && 
       <button onClick={() => addToFavorites()}>Add to Favorites</button>
+      }
     </section>
   );
 };

@@ -1,8 +1,13 @@
 import './Favorites.css'
 import Card from '../Card/Card';
 
+const Favorites = ({favorites, setFavorites}) => {
 
-const Favorites = ({favorites}) => {
+  const removeFavorite = (id) => {
+    const filtered = favorites.filter(favorite => favorite.idDrink !== id)
+    setFavorites(filtered);
+  }
+
   const cocktailCards = favorites.map((drink) => {
     return (
       <Card
@@ -10,6 +15,7 @@ const Favorites = ({favorites}) => {
         id={drink.idDrink}
         title={drink.strDrink}
         img={drink.strDrinkThumb}
+        removeFavorite={removeFavorite}
       />
     );
   });

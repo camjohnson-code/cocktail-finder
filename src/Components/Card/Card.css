@@ -12,9 +12,23 @@
   text-decoration: none;
 }
 
+.card > button {
+  border: none;
+  background-color: inherit;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 300;
+  align-self: self-end;
+  cursor: pointer;
+}
+
 .card:hover {
   scale: 1.03;
   transition: all 0.25s ease;
+}
+
+.card > button:hover {
+  font-weight: 400;
 }
 
 .card img {
