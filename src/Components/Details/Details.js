@@ -1,12 +1,17 @@
-import { useParams } from 'react-router-dom';
 import './Details.css';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getCocktailDetails } from '../../ApiCalls';
 
-const Details = () => {
+const Details = ({ favorites, setFavorites}) => {
   const [selectedCocktail, setSelectedCocktail] = useState(null);
   const [error, setError] = useState('');
   const id = useParams().id;
+
+  const addToFavorites = () => {
+    setFavorites([...favorites, selectedCocktail]);
+  }
+
 
   useEffect(() => {
     getCocktailDetails(id)
@@ -64,6 +69,7 @@ const Details = () => {
         <p>Contemporary Classics</p>
         <img src={selectedCocktail.strDrinkThumb} alt=''></img>
       </hgroup>
+      <button onClick={() => addToFavorites()}>Add to Favorites</button>
     </section>
   );
 };

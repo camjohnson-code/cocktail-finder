@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import './NotFoundPage.css';
 import { Link } from 'react-router-dom';
 
