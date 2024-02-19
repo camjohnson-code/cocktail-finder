@@ -45,7 +45,7 @@ const Details = ({ favorites, setFavorites }) => {
       </ul>
     );
   };
-console.log(favorites)
+
   if (!selectedCocktail || error.length)
     return <p className='error'>{error}</p>;
 
@@ -68,10 +68,7 @@ console.log(favorites)
         <p>Contemporary Classics</p>
         <img src={selectedCocktail.strDrinkThumb} alt=''></img>
       </hgroup>
-      { 
-      !favorites.includes(selectedCocktail) && 
-      <button onClick={() => addToFavorites()}>Add to Favorites</button>
-      }
+      <button onClick={() => addToFavorites()}>Add to Favorites</button> 
     </section>
   );
 };
