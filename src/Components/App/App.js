@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import UseLocalStorage from './UseLocaStorage';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Nav from '../Nav/Nav';
@@ -13,9 +13,7 @@ import RandomCocktailPage from '../Random Cocktail Page/RandomCocktailPage';
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem('isLoggedIn') === 'true'
-  );
+  const [isLoggedIn, setIsLoggedIn] = UseLocalStorage('isLoggedIn', false);
   const [favorites, setFavorites] = UseLocalStorage('stored-faves', []);
   
   const isValidRoute = () => {

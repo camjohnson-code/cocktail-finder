@@ -7,7 +7,6 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
   const signOutWithGoogle = () => {
     signOut(auth)
       .then(() => {
-        localStorage.setItem('isLoggedIn', false);
         setIsLoggedIn(false);
         navigate('/');
       })
