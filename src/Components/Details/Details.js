@@ -9,8 +9,6 @@ const Details = ({ favorites, setFavorites }) => {
   const [buttonText, setButtonText] = useState('Add to Favorites');
   const id = useParams().id;
 
-  const faves = JSON.parse(localStorage.getItem('stored-faves'));
-
   const addToFavorites = () => {
     const alreadyInFavorites = favorites.some(
       (drink) => drink.idDrink === selectedCocktail.idDrink
