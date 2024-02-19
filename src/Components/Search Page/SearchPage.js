@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './SearchPage.css';
 import Card from '../Card/Card';
 import { getCocktail } from '../../ApiCalls';
+import CocktailOfTheDay from '../Cocktail of the Day/CocktailOfTheDay';
 
 const SearchPage = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -48,13 +49,9 @@ const SearchPage = () => {
           cocktailCards.length ? 'has-results' : ''
         }`}
       >
-        {cocktailCards.length ? (
-          cocktailCards
-        ) : error ? (
+        {cocktailCards.length ? (cocktailCards) : error ? (
           <p className='error'>{error}</p>
-        ) : (
-          'No results found. Please try again.'
-        )}
+        ) : <CocktailOfTheDay />}
       </div>
     </section>
   );

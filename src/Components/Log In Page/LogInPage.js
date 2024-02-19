@@ -14,7 +14,7 @@ const LogInPage = ({ setIsLoggedIn }) => {
       .then(() => {
         localStorage.setItem('isLoggedIn', true);
         setIsLoggedIn(true);
-        navigate('/cocktailshome');
+        navigate('/');
       })
       .catch((error) => console.log(error));
   };

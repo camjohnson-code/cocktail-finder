@@ -12,7 +12,7 @@ const NotFoundPage = ({ isLoggedIn }) => {
       <p>
         {isLoggedIn ? (
           <>
-            <Link to={'/cocktailshome'} className='return-home-link'>
+            <Link to={'/'} className='return-home-link'>
               Click here
             </Link>{' '}
             to return home.
