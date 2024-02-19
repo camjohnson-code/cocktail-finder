@@ -25,3 +25,12 @@ export const getRandomCocktail = (spirit) => {
     return res.json();
   });
 };
+
+export const getCocktailOfTheDay = () => {
+  return fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+    .then((response) => response.json())
+    .then((data) => data.drinks[0])
+    .catch((error) => {
+      console.error('Error fetching random cocktail:', error);
+    });
+};

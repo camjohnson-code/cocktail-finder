@@ -31,17 +31,7 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={<LogInPage setIsLoggedIn={setIsLoggedIn} />}
-        ></Route>
-        <Route
-          path='/cocktailshome'
-          element={
-            isLoggedIn ? (
-              <SearchPage />
-            ) : (
-              <NotFoundPage isLoggedIn={isLoggedIn} />
-            )
-          }
+          element={isLoggedIn ? <SearchPage /> : <LogInPage setIsLoggedIn={setIsLoggedIn} />}
         ></Route>
         <Route
           path='/details/:id'

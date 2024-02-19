@@ -1,0 +1,10 @@
+.featured-cocktail-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.featured-cocktail-title {
+  margin-bottom: 40px;
+}
