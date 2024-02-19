@@ -12,9 +12,26 @@
   text-decoration: none;
 }
 
+.remove-button {
+  align-self: self-end;
+}
+
+.remove-button > button {
+  border: none;
+  background-color: inherit;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
 .card:hover {
   scale: 1.03;
   transition: all 0.25s ease;
+}
+
+.remove-button button:hover {
+  font-weight: 400;
 }
 
 .card img {

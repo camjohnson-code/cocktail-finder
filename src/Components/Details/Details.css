@@ -15,12 +15,11 @@
   position: absolute;
   display: flex;
   justify-content: flex-end;
-  align-items: stretch;
   border-bottom: 1px solid black;
   transform: rotate(270deg);
-  top: 19em;
-  left: -14em;
-  width: 68vh;
+  bottom: 19em;
+  left: -13rem;
+  width: 540px;
 }
 
 .accent-text {
@@ -83,6 +82,23 @@
   right: -6em;
   height: 80%;
   opacity: 28%;
+}
+
+.details-container > button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 1.3rem 3rem;
+  border: none;
+  background-color: inherit;
+  font-family: 'Josefin sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.details-container > button:hover {
+  text-decoration: underline;
 }
 
 .error {
