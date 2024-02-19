@@ -1,9 +1,17 @@
 import './Nav.css';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../Firebase/FirebaseConfig';
+import Burger from './Burger';
 
 const Nav = ({ setIsLoggedIn, navigate }) => {
+  const [burgerOpen, setBurgerOpen] = useState(false);
+
+  const toggleBurger = () => {
+    setBurgerOpen(!burgerOpen)
+  }
+
   const signOutWithGoogle = () => {
     signOut(auth)
       .then(() => {
@@ -19,7 +27,7 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
     <>
       <header>
         <h1>Quintessential Cocktails</h1>
-        <nav>
+        <nav className={ burgerOpen ? `nav-column` : ''} onClick={() => setBurgerOpen(false)}>
           <NavLink to="/" className="nav-link">
             Home
           </NavLink>
@@ -33,6 +41,9 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
             Sign Out
           </NavLink>
         </nav>
+        <div className='hamburger' onClick={toggleBurger}>
+          <Burger burgerOpen={burgerOpen} />
+        </div>
       </header>
     </>
   );
