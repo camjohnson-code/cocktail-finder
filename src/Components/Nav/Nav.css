@@ -27,3 +27,66 @@ header > nav {
   font-size: 1.5rem;
   color: #000;
 }
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.active {
+  font-weight: 400;
+}
+
+.nav-column {
+  display: flex;
+  flex-flow: column;
+  height: max-content;
+  width: max-content;
+  position: absolute;
+  padding: 2rem 1rem;
+  z-index: 10;
+  top: 110px;
+  right: 0;
+  background-color: #d9d9d9;
+  box-shadow: -2px 2px 4px 0 black;
+}
+
+.hamburger {
+  width: 2rem;
+  height: 2rem;
+  display: none;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  cursor: pointer;
+}
+
+.burger {
+  width: 2rem;
+  height: 0.15rem;
+  background-color: black;
+  transform-origin: 1px;
+  transition: all 0.3s linear;
+}
+
+.burger1 {
+  transform: rotate(45deg);
+}
+
+.burger2 {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.burger3 {
+  transform: rotate(-45deg);
+}
+
+
+@media (max-width: 1020px) {
+  .hamburger {
+    display: flex;
+  }
+
+  header > nav {
+    display: none;
+  }
+}
