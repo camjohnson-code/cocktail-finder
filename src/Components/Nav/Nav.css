@@ -32,6 +32,10 @@ header > nav {
   text-decoration: underline;
 }
 
+.active {
+  font-weight: 400;
+}
+
 .nav-column {
   display: flex;
   flex-flow: column;

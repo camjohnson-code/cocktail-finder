@@ -28,7 +28,7 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
       <header>
         <h1>Quintessential Cocktails</h1>
         <nav className={ burgerOpen ? `nav-column` : ''} onClick={() => setBurgerOpen(false)}>
-          <NavLink to="/" className="nav-link">
+          <NavLink to="/cocktailshome" className="nav-link">
             Home
           </NavLink>
           <NavLink to="/randomcocktail" className="nav-link">

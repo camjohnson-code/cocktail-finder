@@ -35,34 +35,6 @@ function App() {
           element={isLoggedIn ? <SearchPage /> : <LogInPage setIsLoggedIn={setIsLoggedIn} />}
         ></Route>
         <Route
-          path="/details/:id"
-          element={isLoggedIn ? (
-            <Details favorites={favorites} setFavorites={setFavorites} /> 
-            ) : (
-            <NotFoundPage isLoggedIn={isLoggedIn} />
-            )
-          }
-        ></Route>
-        <Route
-          path='/randomcocktail'
-          element={
-            isLoggedIn ? (
-              <RandomCocktailPage />
-            ) : (
-              <NotFoundPage isLoggedIn={isLoggedIn} />
-            )
-          }
-        ></Route>
-        <Route
-          path="/favorites"
-          element={isLoggedIn ? (
-          <Favorites favorites={favorites} setFavorites={setFavorites}/>
-          ) : (
-          <NotFoundPage isLoggedIn={isLoggedIn} />
-          )
-        }
-        ></Route>
-        <Route
           path='/cocktailshome'
           element={
             isLoggedIn ? (
@@ -73,9 +45,31 @@ function App() {
           }
         ></Route>
         <Route
-          path='/details/:id'
+          path='/randomcocktail'
           element={
-            isLoggedIn ? <Details /> : <NotFoundPage isLoggedIn={isLoggedIn} />
+            isLoggedIn ? (
+              <RandomCocktailPage />
+              ) : (
+                <NotFoundPage isLoggedIn={isLoggedIn} />
+                )
+              }
+        ></Route>
+        <Route
+          path="/favorites"
+          element={isLoggedIn ? (
+            <Favorites favorites={favorites} setFavorites={setFavorites}/>
+            ) : (
+              <NotFoundPage isLoggedIn={isLoggedIn} />
+              )
+            }
+        ></Route>
+        <Route
+          path="/details/:id"
+          element={isLoggedIn ? (
+            <Details favorites={favorites} setFavorites={setFavorites} /> 
+            ) : (
+            <NotFoundPage isLoggedIn={isLoggedIn} />
+            )
           }
         ></Route>
         <Route
