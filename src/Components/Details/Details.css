@@ -75,7 +75,7 @@
   padding-left: 1rem;
 }
 
-.title-container > img {
+.drink-pic {
   z-index: -1;
   position: absolute;
   top: 10%;
@@ -106,4 +106,110 @@
   padding: 2rem;
   font-size: 1.5rem;
   justify-self: center;
+}
+
+@media (max-width: 1160px) {
+  .details-container {
+    display: grid;
+    grid-template-areas: 
+      "head    head"
+      "ingreds pic"
+      "recipe  pic"
+      "recipe  add"
+    ;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    align-items: flex-start;
+    box-shadow: none;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .title-container {
+    grid-area: head;
+  }
+
+  .drink-pic {
+    grid-area: pic;
+    position: relative;
+    top: -20px;
+    left: 0;
+    margin: 0;
+    width: 460px;
+    height: auto;
+    opacity: 1;
+  }
+
+  .ingredients {
+    grid-area: ingreds;
+  }
+  
+  .recipe {
+    grid-area: recipe;
+  }
+
+  .details-container > button {
+    position: relative;
+    grid-area: add;
+    justify-self: self-end;
+  }
+  
+  .ingredients,
+  .recipe {
+    text-align: inherit;
+    box-shadow: 0 0 20px 0 rgb(164, 177, 177);
+    border: 1px solid rgba(128, 128, 128, 0.211);
+    margin-left: 1rem;
+    width: auto;
+    min-width: 280px;
+  }
+  
+  .accent-container {
+    display: none;
+  }
+
+  .details-container > h1 {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .details-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "head"
+      "ingreds"
+      "recipe"
+      "add"
+    ;
+    margin-right: 2rem;
+    /* justify-items: space-around; */
+  }
+
+  .title-container {
+    grid-area: head;
+  }
+
+  .ingredients {
+    grid-area: ingreds;
+  }
+  
+  .recipe {
+    grid-area: recipe;
+  }
+
+  .ingredients,
+  .recipe {
+    max-width: 620px;
+    margin-right: 1rem;
+  }
+
+  .details-container > button {
+    grid-area: add;
+    justify-self: self-start;
+  }
+  
+  .drink-pic {
+    display: none;
+  }
 }
