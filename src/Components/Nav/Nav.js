@@ -2,6 +2,8 @@ import './Nav.css';
 import { NavLink } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../Firebase/FirebaseConfig';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Nav = ({ setIsLoggedIn, navigate }) => {
   const signOutWithGoogle = () => {
@@ -39,3 +41,8 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
 };
 
 export default Nav;
+
+Nav.propTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
+};

@@ -5,10 +5,11 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../Firebase/FirebaseConfig';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const LogInPage = ({ setIsLoggedIn }) => {
+const LogInPage = ({ setIsLoggedIn, navigate }) => {
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   const signInWithGoogle = async () => {
     const provider = await new GoogleAuthProvider();
@@ -50,3 +51,8 @@ const LogInPage = ({ setIsLoggedIn }) => {
 };
 
 export default LogInPage;
+
+LogInPage.propTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
+};
