@@ -201,11 +201,12 @@
   .ingredients,
   .recipe {
     max-width: 620px;
+    margin-right: 1rem;
   }
 
   .details-container > button {
     grid-area: add;
-    align-self: center;
+    justify-self: self-start;
   }
   
   .drink-pic {
