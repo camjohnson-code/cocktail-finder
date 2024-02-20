@@ -1,5 +1,7 @@
 import './NotFoundPage.css';
 import { Link } from 'react-router-dom';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const NotFoundPage = ({ isLoggedIn }) => {
   return (
@@ -31,3 +33,7 @@ const NotFoundPage = ({ isLoggedIn }) => {
 };
 
 export default NotFoundPage;
+
+NotFoundPage.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+};

@@ -32,7 +32,7 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={isLoggedIn ? <SearchPage /> : <LogInPage setIsLoggedIn={setIsLoggedIn} />}
+          element={isLoggedIn ? <SearchPage /> : <LogInPage navigate={navigate} setIsLoggedIn={setIsLoggedIn} />}
         ></Route>
         <Route
           path='/cocktailshome'

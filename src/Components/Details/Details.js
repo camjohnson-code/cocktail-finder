@@ -2,6 +2,8 @@ import './Details.css';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getCocktailDetails } from '../../ApiCalls';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Details = ({ favorites, setFavorites }) => {
   const [selectedCocktail, setSelectedCocktail] = useState(null);
@@ -83,3 +85,8 @@ const Details = ({ favorites, setFavorites }) => {
 };
 
 export default Details;
+
+Details.propTypes = {
+  favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setFavorites: PropTypes.func.isRequired,
+};

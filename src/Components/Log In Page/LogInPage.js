@@ -4,9 +4,12 @@ import GoogleButton from 'react-google-button';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../Firebase/FirebaseConfig';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const LogInPage = ({ setIsLoggedIn }) => {
-  const navigate = useNavigate();
+const LogInPage = ({ setIsLoggedIn, navigate }) => {
+  const [error, setError] = useState(null);
 
   const signInWithGoogle = async () => {
     const provider = await new GoogleAuthProvider();
@@ -16,7 +19,7 @@ const LogInPage = ({ setIsLoggedIn }) => {
         setIsLoggedIn(true);
         navigate('/cocktailshome');
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setError(true));
   };
 
   const handleKeyDown = (event) => {
@@ -41,9 +44,15 @@ const LogInPage = ({ setIsLoggedIn }) => {
           className='sign-in-button'
           src={require('../../Images/web_light_rd_SI@4x.png')}
         />
+        {error && <p>There was an error signing you in. Please try again.</p>}
       </section>
     </section>
   );
 };
 
 export default LogInPage;
+
+LogInPage.propTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
+};
