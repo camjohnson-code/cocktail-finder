@@ -60,6 +60,7 @@ const Details = ({ favorites, setFavorites }) => {
 
   return (
     <section className='details-container'>
+      <img className='drink-pic' src={selectedCocktail.strDrinkThumb} alt=''></img>
       <h1>{`${selectedCocktail.strDrink}`}</h1>
       <div className='accent-container'>
         <p className='accent-text'>{`${selectedCocktail.strCategory}`}</p>
@@ -75,7 +76,6 @@ const Details = ({ favorites, setFavorites }) => {
       <hgroup className='title-container'>
         <h2>{`${selectedCocktail.strDrink}`}</h2>
         <p>Contemporary Classics</p>
-        <img src={selectedCocktail.strDrinkThumb} alt=''></img>
       </hgroup>
       <button onClick={() => addToFavorites()}>{buttonText}</button>
     </section>
