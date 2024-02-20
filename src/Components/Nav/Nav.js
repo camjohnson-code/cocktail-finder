@@ -10,8 +10,8 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
         setIsLoggedIn(false);
         navigate('/');
       })
-      .catch(error => {
-        console.log(error);
+      .catch((error) => {
+        alert('There was an error signing you out. Please try again later.');
       });
   };
 
@@ -20,16 +20,16 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
       <header>
         <h1>Quintessential Cocktails</h1>
         <nav>
-          <NavLink to="/" className="nav-link">
+          <NavLink to='/' className='nav-link'>
             Home
           </NavLink>
-          <NavLink to="/randomcocktail" className="nav-link">
+          <NavLink to='/randomcocktail' className='nav-link'>
             Random Cocktail
           </NavLink>
-          <NavLink to="/favorites" className="nav-link">
+          <NavLink to='/favorites' className='nav-link'>
             Favorites
           </NavLink>
-          <NavLink to="/" className="nav-link" onClick={signOutWithGoogle}>
+          <NavLink to='/' className='nav-link' onClick={signOutWithGoogle}>
             Sign Out
           </NavLink>
         </nav>

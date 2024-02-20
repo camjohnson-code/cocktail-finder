@@ -5,17 +5,24 @@ import Card from '../Card/Card';
 
 const CocktailOfTheDay = () => {
   const [cocktailOfTheDay, setCocktailOfTheDay] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getCocktailOfTheDay().then((drink) => {
-      setCocktailOfTheDay(drink);
-    });
+    getCocktailOfTheDay()
+      .then((drink) => {
+        setCocktailOfTheDay(drink);
+      })
+      .catch((error) => {
+        setError(true);
+      });
   }, []);
 
   return (
     <div className='featured-cocktail-section'>
       <h2 className='featured-cocktail-title'>Cocktail of the Day</h2>
-      {cocktailOfTheDay ? (
+      {error ? (
+        <p>There was an error loading today's featured cocktail.</p>
+      ) : cocktailOfTheDay ? (
         <Card
           key={cocktailOfTheDay.idDrink}
           id={cocktailOfTheDay.idDrink}
