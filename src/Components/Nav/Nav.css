@@ -56,6 +56,7 @@ header > nav {
   display: none;
   justify-content: space-around;
   flex-flow: column nowrap;
+  padding: 0 2rem;
   cursor: pointer;
 }
 
