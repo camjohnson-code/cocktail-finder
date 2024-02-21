@@ -31,11 +31,11 @@ function App() {
       )}
       <Routes>
         <Route
-          path='/'
+          path='/cocktail-finder/'
           element={isLoggedIn ? <SearchPage /> : <LogInPage navigate={navigate} setIsLoggedIn={setIsLoggedIn} />}
         ></Route>
         <Route
-          path='/cocktailshome'
+          path='/cocktail-finder/cocktailshome'
           element={
             isLoggedIn ? (
               <SearchPage />
@@ -45,7 +45,7 @@ function App() {
           }
         ></Route>
         <Route
-          path='/randomcocktail'
+          path='/cocktail-finder/randomcocktail'
           element={
             isLoggedIn ? (
               <RandomCocktailPage />
@@ -55,7 +55,7 @@ function App() {
             }
         ></Route>
         <Route
-          path="/favorites"
+          path="/cocktail-finder/favorites"
           element={isLoggedIn ? (
             <Favorites favorites={favorites} setFavorites={setFavorites}/>
             ) : (
@@ -64,7 +64,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/details/:id"
+          path="/cocktail-finder/details/:id"
           element={isLoggedIn ? (
             <Details favorites={favorites} setFavorites={setFavorites} /> 
             ) : (
