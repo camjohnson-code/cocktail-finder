@@ -2,7 +2,7 @@ describe('Search function', () => {
   beforeEach(() => {
     cy.intercept('https://www.thecocktaildb.com/api/json/v1/1/random.php', {
       response: 200,
-      response: 'royalFizz'
+      fixture: 'royalFizz'
     });
     cy.intercept('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita', {
       response: 200,
