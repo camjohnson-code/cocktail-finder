@@ -8,6 +8,10 @@ describe('Search function', () => {
       response: 200,
       fixture: 'margaritas'
     })
+    cy.intercept('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007', {
+      response: 200,
+      fixture: 'margaritas'
+    })
     
     cy.visit('http://localhost:3000/cocktailshome');
   });
