@@ -57,7 +57,7 @@ const RandomCocktailPage = () => {
       <section className='right-half'>
         <section className='random-cocktail-results'>
           {!randomCocktail && !error ? (
-            <p className='random-text'>Click the button to find a cocktail</p>
+            <p className='side-text random-text'>Click the button to find a cocktail</p>
           ) : (
             <Card
               key={randomCocktail.idDrink}
