@@ -38,16 +38,16 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
           <Burger burgerOpen={burgerOpen} />
         </div>
         <nav className={ burgerOpen ? `nav-column` : ''} onClick={() => setBurgerOpen(false)}>
-          <NavLink to="/cocktail-finder/cocktailshome" className="nav-link home">
+          <NavLink to="/cocktailshome/" className="nav-link home">
             Home
           </NavLink>
-          <NavLink to='/cocktail-finder/randomcocktail' className='nav-link random'>
+          <NavLink to='/randomcocktail/' className='nav-link random'>
             Random Cocktail
           </NavLink>
-          <NavLink to='/cocktail-finder/favorites' className='nav-link favorites'>
+          <NavLink to='/favorites/' className='nav-link favorites'>
             Favorites
           </NavLink>
-          <NavLink to='/cocktail-finder' className='nav-link' onClick={signOutWithGoogle}>
+          <NavLink to='/cocktail-finder/' className='nav-link' onClick={signOutWithGoogle}>
             Sign Out
           </NavLink>
         </nav>
