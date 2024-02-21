@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBv8s-EjmxKHeQ6_s9bSdMpX2Avty0JFPg',
-  authDomain: 'quintessential-cocktails-c4969.firebaseapp.com',
-  projectId: 'quintessential-cocktails-c4969',
-  storageBucket: 'quintessential-cocktails-c4969.appspot.com',
-  messagingSenderId: '400249277001',
-  appId: '1:400249277001:web:c776aff99635f1dd29cd98',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
