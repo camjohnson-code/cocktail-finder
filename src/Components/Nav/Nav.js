@@ -34,20 +34,20 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
     <>
       <header>
         <h1>Quintessential Cocktails</h1>
-        <div className='hamburger' tabindex={0} onClick={toggleBurger} onKeyDown={e => handleKeyDown(e)}>
+        <div className='hamburger' tabIndex={0} onClick={toggleBurger} onKeyDown={e => handleKeyDown(e)}>
           <Burger burgerOpen={burgerOpen} />
         </div>
         <nav className={ burgerOpen ? `nav-column` : ''} onClick={() => setBurgerOpen(false)}>
-          <NavLink to="/cocktailshome" className="nav-link home">
+          <NavLink to="/cocktail-finder/cocktailshome" className="nav-link home">
             Home
           </NavLink>
-          <NavLink to='/randomcocktail' className='nav-link random'>
+          <NavLink to='/cocktail-finder/randomcocktail' className='nav-link random'>
             Random Cocktail
           </NavLink>
-          <NavLink to='/favorites' className='nav-link favorites'>
+          <NavLink to='/cocktail-finder/favorites' className='nav-link favorites'>
             Favorites
           </NavLink>
-          <NavLink to='/' className='nav-link' onClick={signOutWithGoogle}>
+          <NavLink to='/cocktail-finder' className='nav-link' onClick={signOutWithGoogle}>
             Sign Out
           </NavLink>
         </nav>
