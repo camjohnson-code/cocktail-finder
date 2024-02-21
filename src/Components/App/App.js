@@ -13,7 +13,7 @@ import RandomCocktailPage from '../Random Cocktail Page/RandomCocktailPage';
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = UseLocalStorage('isLoggedIn', true);
+  const [isLoggedIn, setIsLoggedIn] = UseLocalStorage('isLoggedIn', false);
   const [favorites, setFavorites] = UseLocalStorage('stored-faves', []);
   
   const isValidRoute = () => {
