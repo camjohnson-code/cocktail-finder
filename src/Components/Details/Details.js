@@ -27,6 +27,10 @@ const Details = ({ favorites, setFavorites }) => {
     getCocktailDetails(id)
       .then((data) => {
         setSelectedCocktail(data.drinks[0]);
+        const alreadyInFavorites = favorites.some(
+          (drink) => drink.idDrink === data.drinks[0].idDrink
+        );
+        if (alreadyInFavorites) setButtonText('Added!');
       })
       .catch((error) => {
         setError(error.message);
@@ -62,7 +66,11 @@ const Details = ({ favorites, setFavorites }) => {
 
   return (
     <section className='details-container'>
-      <img className='drink-pic' src={selectedCocktail.strDrinkThumb} alt=''></img>
+      <img
+        className='drink-pic'
+        src={selectedCocktail.strDrinkThumb}
+        alt=''
+      ></img>
       <h1>{`${selectedCocktail.strDrink}`}</h1>
       <div className='accent-container'>
         <p className='accent-text'>{`${selectedCocktail.strCategory}`}</p>
