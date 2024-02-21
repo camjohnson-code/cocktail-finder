@@ -4,7 +4,10 @@ describe('Random Cocktail Generator', () => {
       response: 200,
       fixture: 'royalFizz'
     })
-    
+    cy.intercept('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=12055', {
+      response: 200,
+      fixture: 'royalFizz'
+    })
     cy.visit('http://localhost:3000/randomcocktail');
   });
   
@@ -16,6 +19,7 @@ describe('Random Cocktail Generator', () => {
   })
 
   it('Can generate a random cocktail and see its info when clicked', () => {
+
     cy.intercept('GET', `**/filter.php?i=Vodka`, { fixture: 'royalFizz.json' });
     cy.intercept('GET', `**/filter.php?i=Rum`, { fixture: 'royalFizz.json' });
     cy.intercept('GET', `**/filter.php?i=Whiskey`, { fixture: 'royalFizz.json' });
