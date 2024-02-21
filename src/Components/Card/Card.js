@@ -22,6 +22,6 @@ export default Card;
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  removeEventListener: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  removeFavorite: PropTypes.func,
 };
