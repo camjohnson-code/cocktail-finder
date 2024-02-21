@@ -13,7 +13,7 @@ import RandomCocktailPage from '../Random Cocktail Page/RandomCocktailPage';
 function App() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = UseLocalStorage('isLoggedIn', false);
+  const [isLoggedIn, setIsLoggedIn] = UseLocalStorage('isLoggedIn', true);
   const [favorites, setFavorites] = UseLocalStorage('stored-faves', []);
   
   const isValidRoute = () => {
@@ -51,8 +51,8 @@ function App() {
               <RandomCocktailPage />
               ) : (
                 <NotFoundPage isLoggedIn={isLoggedIn} />
-                )
-              }
+              )
+            }
         ></Route>
         <Route
           path="/favorites"
@@ -60,8 +60,8 @@ function App() {
             <Favorites favorites={favorites} setFavorites={setFavorites}/>
             ) : (
               <NotFoundPage isLoggedIn={isLoggedIn} />
-              )
-            }
+            )
+          }
         ></Route>
         <Route
           path="/details/:id"

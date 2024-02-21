@@ -1,9 +1,6 @@
 import './LogInPage.css';
-import App from '../App/App';
-import GoogleButton from 'react-google-button';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../Firebase/FirebaseConfig';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import React from 'react';
 import PropTypes from 'prop-types';
