@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Rancid Tomatillos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![App demo](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ25idzNqc2xqcTBhMnVrdzl0NTFzZTM0c3R1aWZzM3JtZ2NrNHY2cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DbSLibbSRhUU2DJUx4/giphy.gif)
 
-## Available Scripts
+Quintessential Cocktails is a web application designed to help users discover and learn about various cocktails. It leverages React and React Router to provide a seamless browsing experience. Users can view detailed cocktail information, and save their favorite cocktails for easy access.
 
-In the project directory, you can run:
+## Contributors
 
-### `npm start`
+- [Cameron Johnson](https://github.com/camjohnson-code)
+- [Eric Batiste](https://github.com/ericbatiste)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- The ability to log in using Google authentication.
+- The application features a "Cocktail of the Day" section that displays a randomly selected cocktail each day.
+- Users can click on any cocktail to view detailed information about the cocktail, including ingredients and preparation instructions.
+- Users can save their favorite cocktails for easy access. The favorites are stored in the user's local storage, so they persist across sessions.
+- The application is designed to be responsive and works well on both desktop and mobile devices.
 
-### `npm test`
+## Live Link
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Click here](https://www.google.com) to visit the application.
 
-### `npm run build`
+### Challenges
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- API data was quite verbose, in particular, the cocktail ingredients. However, it was fun getting to write some more complicated logic to reformat the data to support dynamic rendering to the details page.
+- Because we are only using Authentication with Google, opposed to sign-in with email and password, allowing cypress access to the site was tricky. We were able to find a workaround by saving a 'logged in' state in local storage. By setting the state's default value to true, cypress was able to bypass the login page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone the repository:
 
-### `npm run eject`
+`git clone git@github.com:camjohnson-code/cocktail-finder.git`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Navigate to the project directory:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`cd cocktail-finder`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Install dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`npm install`
 
-## Learn More
+### Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Start the development server:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm start`
 
-### Code Splitting
+Open your web browser and visit http://localhost:3000 to access the application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Future Improvements
 
-### Analyzing the Bundle Size
+In the future, we'd like to improve the site by adding these features:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Currently, saved favorites are stored in local storage. We'd like to migrate the storage of user's favorites to Firebase.
+- Add a login option using other authentication methods like email/password, Facebook, etc.
+- Further refactoring of the featured cocktail storing its value in Firebase.
 
-### Making a Progressive Web App
+#### Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was an [assignment](https://frontend.turing.edu/projects/module-3/stretch.html) during our time as Front End students at the [Turing School of Software and Design](https://turing.edu/).
