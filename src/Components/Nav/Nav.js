@@ -30,13 +30,13 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
       <header>
         <h1>Quintessential Cocktails</h1>
         <nav className={ burgerOpen ? `nav-column` : ''} onClick={() => setBurgerOpen(false)}>
-          <NavLink to="/cocktailshome" className="nav-link">
+          <NavLink to="/cocktailshome" className="nav-link home">
             Home
           </NavLink>
-          <NavLink to='/randomcocktail' className='nav-link'>
+          <NavLink to='/randomcocktail' className='nav-link random'>
             Random Cocktail
           </NavLink>
-          <NavLink to='/favorites' className='nav-link'>
+          <NavLink to='/favorites' className='nav-link favorites'>
             Favorites
           </NavLink>
           <NavLink to='/' className='nav-link' onClick={signOutWithGoogle}>
