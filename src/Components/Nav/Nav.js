@@ -10,9 +10,14 @@ import Burger from './Burger';
 const Nav = ({ setIsLoggedIn, navigate }) => {
   const [burgerOpen, setBurgerOpen] = useState(false);
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') toggleBurger()
+  }
+
   const toggleBurger = () => {
     setBurgerOpen(!burgerOpen)
   }
+
 
   const signOutWithGoogle = () => {
     signOut(auth)
@@ -29,6 +34,9 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
     <>
       <header>
         <h1>Quintessential Cocktails</h1>
+        <div className='hamburger' tabindex={0} onClick={toggleBurger} onKeyDown={e => handleKeyDown(e)}>
+          <Burger burgerOpen={burgerOpen} />
+        </div>
         <nav className={ burgerOpen ? `nav-column` : ''} onClick={() => setBurgerOpen(false)}>
           <NavLink to="/cocktailshome" className="nav-link home">
             Home
@@ -43,9 +51,6 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
             Sign Out
           </NavLink>
         </nav>
-        <div className='hamburger' onClick={toggleBurger}>
-          <Burger burgerOpen={burgerOpen} />
-        </div>
       </header>
     </>
   );
