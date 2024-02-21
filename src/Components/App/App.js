@@ -68,7 +68,7 @@ function App() {
           element={isLoggedIn ? (
             <Details favorites={favorites} setFavorites={setFavorites} /> 
             ) : (
-            <NotFoundPage isLoggedIn={isLoggedIn} />
+              <NotFoundPage isLoggedIn={isLoggedIn} />
             )
           }
         ></Route>
