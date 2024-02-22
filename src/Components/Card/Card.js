@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 
 const Card = ({ title, img, id, removeFavorite }) => {
   return (
-    <Link className='card' to={`/details/${id}`}>
+    <Link className='card' to={`/cocktail-finder/details/${id}`}>
       {useLocation().pathname.includes('/favorites') && (
-        <Link className='remove-button' to={'/favorites'}>
+        <Link className='remove-button' to={'/cocktail-finder/favorites'}>
           <button onClick={() => removeFavorite(id)}>X</button>
         </Link>
       )}

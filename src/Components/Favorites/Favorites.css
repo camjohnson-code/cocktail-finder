@@ -1,13 +1,14 @@
 .favorites-container {
-  width: 90%;
   font-family: 'Josefin Sans', sans-serif;
   margin-top: 10%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: auto;
 }
 
-.favorites-container.has-favorites {
+.favorites-container,
+.has-favorites {
   gap: 40px 90px;
   margin: 40px;
 }

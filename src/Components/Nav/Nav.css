@@ -28,6 +28,12 @@ header > nav {
   color: #000;
 }
 
+.sign-out-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .nav-link:hover {
   text-decoration: underline;
 }
@@ -80,7 +86,6 @@ header > nav {
 .burger3 {
   transform: rotate(-45deg);
 }
-
 
 @media (max-width: 1020px) {
   .hamburger {

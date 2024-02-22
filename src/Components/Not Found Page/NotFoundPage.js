@@ -14,16 +14,16 @@ const NotFoundPage = ({ isLoggedIn }) => {
       <p>
         {isLoggedIn ? (
           <>
-            <Link to={'/cocktailshome'} className='return-home-link'>
+            <Link to={'/cocktail-finder/cocktailshome'} className='return-home-link'>
               Click here
             </Link>{' '}
             to return home.
           </>
         ) : (
           <>
-            <Link to={'/'} className='return-home-link'>
+            <Link to={'/cocktail-finder'} className='return-home-link'>
               Click here
-            </Link>{' '}
+            </Link>
             to return to the sign in page.
           </>
         )}

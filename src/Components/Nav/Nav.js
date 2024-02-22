@@ -11,19 +11,18 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
   const [burgerOpen, setBurgerOpen] = useState(false);
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') toggleBurger()
-  }
+    if (e.key === 'Enter') toggleBurger();
+  };
 
   const toggleBurger = () => {
-    setBurgerOpen(!burgerOpen)
-  }
-
+    setBurgerOpen(!burgerOpen);
+  };
 
   const signOutWithGoogle = () => {
     signOut(auth)
       .then(() => {
         setIsLoggedIn(false);
-        navigate('/');
+        navigate('/cocktail-finder');
       })
       .catch((error) => {
         alert('There was an error signing you out. Please try again later.');
@@ -34,22 +33,39 @@ const Nav = ({ setIsLoggedIn, navigate }) => {
     <>
       <header>
         <h1>Quintessential Cocktails</h1>
-        <div className='hamburger' tabIndex={0} onClick={toggleBurger} onKeyDown={e => handleKeyDown(e)}>
+        <div
+          className='hamburger'
+          tabIndex={0}
+          onClick={toggleBurger}
+          onKeyDown={(e) => handleKeyDown(e)}
+        >
           <Burger burgerOpen={burgerOpen} />
         </div>
-        <nav className={ burgerOpen ? `nav-column` : ''} onClick={() => setBurgerOpen(false)}>
-          <NavLink to="/cocktailshome/" className="nav-link home">
+        <nav
+          className={burgerOpen ? `nav-column` : ''}
+          onClick={() => setBurgerOpen(false)}
+        >
+          <NavLink
+            to='/cocktail-finder/cocktailshome'
+            className='nav-link home'
+          >
             Home
           </NavLink>
-          <NavLink to='/randomcocktail/' className='nav-link random'>
+          <NavLink
+            to='/cocktail-finder/randomcocktail'
+            className='nav-link random'
+          >
             Random Cocktail
           </NavLink>
-          <NavLink to='/favorites/' className='nav-link favorites'>
+          <NavLink
+            to='/cocktail-finder/favorites'
+            className='nav-link favorites'
+          >
             Favorites
           </NavLink>
-          <NavLink to='/cocktail-finder/' className='nav-link' onClick={signOutWithGoogle}>
+          <button className='sign-out-button nav-link' onClick={signOutWithGoogle}>
             Sign Out
-          </NavLink>
+          </button>
         </nav>
       </header>
     </>
