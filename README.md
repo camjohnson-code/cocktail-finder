@@ -19,7 +19,7 @@ Quintessential Cocktails is a web application designed to help users discover an
 
 ## Live Link
 
-[Click here](https://www.google.com) to visit the application.
+[Click here](https://camjohnson-code.github.io/cocktail-finder/) to visit the application.
 
 ### Challenges
 
