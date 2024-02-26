@@ -8,7 +8,7 @@ describe('Random Cocktail Generator', () => {
       response: 200,
       fixture: 'royalFizz'
     })
-    cy.visit('http://localhost:3000/randomcocktail');
+    cy.visit('http://localhost:3000/cocktail-finder/randomcocktail');
   });
   
   it('Visits the random generator page', () => {

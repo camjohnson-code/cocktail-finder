@@ -13,7 +13,7 @@ describe('Search function', () => {
       fixture: 'margaritas'
     })
     
-    cy.visit('http://localhost:3000/cocktailshome');
+    cy.visit('http://localhost:3000/cocktail-finder/cocktailshome');
   });
   
   it(`Should search for a cocktail and have those drinks' cards rendered on the page`, () => {

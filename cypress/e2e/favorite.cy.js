@@ -8,7 +8,7 @@ describe('Favoriting a Cocktail', () => {
       response: 200,
       fixture: 'royalFizz'
     })
-    cy.visit('http://localhost:3000/cocktailshome');
+    cy.visit('http://localhost:3000/cocktail-finder/cocktailshome');
   });
 
   it('Can click on a cocktail and see the details', () => {

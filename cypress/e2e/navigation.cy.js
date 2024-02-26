@@ -5,7 +5,7 @@ describe('Search function', () => {
       fixture: 'royalFizz'
     })
     
-    cy.visit('http://localhost:3000/cocktailshome');
+    cy.visit('http://localhost:3000/cocktail-finder/cocktailshome');
     cy.viewport(1021, 660)
   });
 
